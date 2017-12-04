@@ -1,0 +1,449 @@
+本堂课内容：
+socket编程：网络
+
+网络：上网
+	网吧：
+		18岁以下不准计入
+
+		身份证：
+		摄像头：
+
+		19-->进入网吧：
+			打开一台电脑(主机)
+			
+			QQ：
+		
+				妹子，你在么
+							
+	
+			对方：操作一台电脑(主机)
+			QQ：
+				本人已下线
+
+
+		浏览器：
+			输入网址：www.baidu.com--->IP地址
+
+
+网络编程的三要素：
+A：IP地址：
+	主机在网络中的唯一标识
+		数字：
+		
+B：端口号：port
+	唯一标识主机上的网络应用程序
+			
+
+C：协议：
+	网络协议
+
+
+HTTP：超文本传输协议
+	文本，图片，音频，视频，xxx.zip...
+	
+
+
+www.baidu.com--->百度的主机
+	DNS：域名解析器
+		ip地址定位主机：
+		
+	www.yztc.com--->主机	
+
+
+
+应用层：
+传输层：
+	TCP，UDP
+	TCP：面向连接，三次握手
+		类比于打电话，传递数据靠谱。
+		效率低
+
+	UDP：面向无连接
+		类比于写信，传递的数据不太靠谱
+		效率高
+
+
+				
+IP：
+
+	192.168.1.100
+	补充：127.0.0.1，localhost，代表本机
+
+Port：
+	端口：0-65535的整数数值，
+		0-1023，公共的端口
+			80
+			3306：mysql
+			5521：oracle。。。
+
+		2014-65535
+			个人
+
+
+
+
+Demo01.py
+	-->端口号：54321
+
+Demo02.py
+	-->端口号：54321
+
+
+协议：
+A：TCP协议
+	主机A：服务端
+		
+	主机B：客户端
+
+	我的电脑(客户端)-->百度的电脑(服务端)
+		客户端：主动的一方
+		服务端：被动的一方
+
+
+
+需求1：基于TCP
+	客户端-->服务端
+		服务器，你在么
+
+	主机A：用户做客户端
+
+	主机B：用户做服务端
+
+
+
+send：发送
+receive：接收
+
+
+Java：
+TCP
+	服务器：ServerSocekt
+	客户端：Socket
+
+UDP
+
+
+
+python
+
+TCP：
+	服务端：socket
+	客户端：socket
+
+
+
+UDP：
+	发送端：socket
+	接收端：socket
+
+
+
+
+客户端-->服务端：
+
+服务端-->客户端：
+
+while True：
+	我带着呢
+	你干啊哈呢
+
+	客户端：读键盘--->阻塞
+	客户端：发送
+	服务端：接收-->阻塞
+	服务端：读键盘-->阻塞
+	服务端：发送
+	客户端：接收-->阻塞
+
+
+
+现象：客户端-->服务端，只能一人一句
+
+
+""--->False
+[],(),{},0-->False
+
+
+需求：
+客户端-->服务端
+	发送一个图片
+
+分析：
+	客户端：本地磁盘上
+		open(filepath,mode="rb")-->file
+		file.read()
+
+		操作socket.send()  10000个字节
+
+
+	服务端：
+		recv(1024)-->data
+			读入1024
+		存入服务端的磁盘上
+		open(mode="wb")-->file
+		file.write(data)
+
+
+
+
+字符串：文本：encode(),decode()
+
+
+图片：二进制数据
+	
+	abc中文
+
+复制文件：
+	一台
+
+
+
+file = open("a",mode="wt")
+
+
+file.write(5)-->filename的文件开头保存
+file.write(5)-->
+
+
+file2 = open(filename, mode="wb")
+
+
+
+
+
+打开命令行：快捷键win+R
+	ipconfig--->查看ip地址
+	netstat -ano-->查看进程的网络状态：协议，地址，进程号
+	
+
+
+
+
+主机的地址：
+	本机：127.0.0.1，localhost
+		真实的ip。
+
+	其他：真实的ip
+
+
+
+
+ECHO程序：
+	回声：
+
+	客户端-->服务端
+		你干啥呢
+	服务端-->客户端
+		ECHO：你干啥呢
+
+
+	客户端-->服务端
+		你咋学我说话
+	服务单-->客户端
+		ECHO：你咋学我说话
+
+
+
+	step1：客户端读键盘
+	step2：客户端发送
+
+
+
+	step3：服务端接收
+	step4：服务端发送
+	step5：客户端接收
+
+
+
+服务端：
+	1.处理一个客户端的ECHO程序
+	2.能否处理多个？one by one
+	3.同时处理多个客户端
+
+
+
+
+TCP：面向连接
+UDP：面向无连接
+	发送方(客户端)
+
+	接收方(服务端)
+
+
+主机A：
+	采用UDP：主机B的port程序上发送数据。
+	
+
+		
+
+
+总结：
+1.网络编程的三要素
+	A：ip，定位主机
+		主机的唯一标识
+	B：port：定位程序的端口
+		程序的唯一标识
+	C：协议：
+		通信协议：TCP/IP协议
+			
+		TCP，UDP
+
+
+2.网络模型：
+	A：实际应用：4层
+		应用层：
+		传输层：
+		网际层：
+		链路层：
+	B：理论：7层：OSI
+		应用层：
+		表示层：
+		会话层：
+
+		传输层：
+
+		网络层：
+
+		数据链路层：
+		物理层：
+
+
+3.TCP，UPD
+	TCP：面向连接，靠谱
+		连接：三次握手
+			主机A：你在么
+			主机B：我在的
+			主机A：我知道了
+
+			巴啦啦巴拉。。。
+
+		连接的时候：三次握手
+		SYN：标志位，如果数值是1，请求包
+		ACK：标志位，如果数值是1，确认包
+
+		第一次握手：
+			主机A发送：SYN=1，随机数seq=37467755
+			主机B：接收SYN=1，表示知道了主机A的目的是建立连接
+
+		第二次握手：
+			主机B发送：ACK=1，检查随机数序列：seq+1 = 37467755+1
+			主机B同时也发送SYN=1，随机数：seq=123445
+			主机A接收到：ACK，检查是原序列+1.SYN=1，
+
+		第三次握手：
+			主机A发送ACK=1，检查随机数序列：seq+1=123445+1
+
+
+
+		断开的时候：四次挥手
+
+
+		效率低
+
+
+	UDP：面向无连接，不靠谱
+		效率高
+
+
+4.操作流程
+socket()
+	第一个参数：基于网络，基于文件：AF_INET
+	第二个参数：协议：SOCK_STREAM,SOCK_DGARM
+
+
+	A：TCP：服务端，客户端
+		逻辑上客户端请求服务端获取数据，而服务端处于被动，一直等待客户端链接请求。。
+	服务端程序：
+	step1：初始化信息：
+		指明自己的ip：
+		指明自己的port：
+		address(ip,port)
+
+	step2：创建socket对象
+		server_socket = socket() 
+		绑定端口：bind()
+		监听：listen(5)
+
+	step3：等待客户端的链接：
+		accept()-->client_socket,client_adress
+
+	step4：数据交互：
+			send(data)
+			recv(buf_size)
+
+	step5：关闭
+		close()
+
+
+
+	客户端程序：
+	step1：初始化信息：
+		要链接服务端的ip
+		要链接的服务器port
+
+	step2：创建socket对象
+		server_socket = socket() 
+
+	step3：申请链接服务端
+		connect(address)
+
+	step4：数据交互
+			send(data)
+			recv(buf_size)
+
+	step5：关闭
+		close()
+
+
+
+	B：UDP编程，发送方，接收方
+	发送方：
+	step1：初始化信息
+		指明接收方的ip
+		指明接收方法的port
+
+	step2：创建socket
+		send_socket = socket() 
+		
+	step3：发送数据
+		sendto(data,address)
+
+	step4：关闭
+
+
+	接收方：
+	step1：初始化信息
+		指明自己的ip'
+		指明自己的端口
+
+	step2：创建socket
+		recv_socekt = socket()
+		bind(address)
+
+	step3：接收数据
+		recvfrom(buf_size)-->(data,发送方的地址)
+
+	step4：关闭
+
+
+
+
+
+http：超文本传输协议：********
+
+
+
+socket对象：
+	TCP：
+		socket(AF_INET, SOCK_STREAM)
+
+			send()
+			recv()
+		
+	UDP：
+		socket(AF_INET, SOCK_DGRAM)
+			
+			sendto()
+			recvfrom()
+
+
+
